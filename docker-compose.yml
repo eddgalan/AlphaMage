@@ -1,0 +1,39 @@
+version: '3'
+services:
+  alpha-mage:
+    build: .
+    container_name: alpha-mage
+    ports:
+      - "8084:80"
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - alpha-network
+  mariadb:
+    image: mariadb:11.4
+    container_name: mariadb
+    volumes:
+      - ./containers/mariadb/db:/var/lib/mysql/
+      - ./containers/mariadb/logs:/var/log/mysql/
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678a
+    networks:
+      - alpha-network
+  opensearch3:
+    image: opensearchproject/opensearch:3
+    container_name: opensearch3
+    #      volumes:
+    #        - ./logs://usr/share/opensearch/logs
+    environment:
+      - discovery.type=single-node
+      - DISABLE_SECURITY_PLUGIN=true
+    #  - OPENSEARCH_INITIAL_ADMIN_PASSWORD=AlphaMage2026!
+    ports:
+      - "9201:9200"
+    networks:
+      - alpha-network
+networks:
+  alpha-network:
+    external: true

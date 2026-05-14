@@ -1,0 +1,20 @@
+docker-php-ext-install \
+  bcmath \
+  gd \
+  intl \
+  pdo_mysql \
+  soap \
+  xsl \
+  zip \
+  sockets \
+  ctype \
+  curl \
+  dom \
+  fileinfo \
+  filter \
+  iconv \
+  mbstring \
+  simplexml \
+  sodium \
+  tokenizer \
+  xmlwriter

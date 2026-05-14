@@ -1,0 +1,20 @@
+bin/magento setup:install \
+--base-url=http://localhost:8084 \
+--db-host=mariadb \
+--db-name=alpha_mage \
+--db-user=root \
+--db-password=12345678a \
+--admin-firstname=edson \
+--admin-lastname=galan \
+--admin-email=edd.galan@hotmail.com \
+--admin-user=admin \
+--admin-password=12345678a \
+--language=en_US \
+--currency=MXN \
+--timezone=America/Chicago \
+--use-rewrites=1 \
+--search-engine=opensearch \
+--opensearch-host=opensearch3 \
+--opensearch-port=9200 \
+--opensearch-index-prefix=magento2 \
+--opensearch-timeout=15
